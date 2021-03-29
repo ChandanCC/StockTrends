@@ -1,0 +1,15 @@
+export default {
+  primaryBackground: 'rgb(65,49,116)',
+  red: 'rgb(255,0,0)',
+  black: 'rgb(0,0,0)',
+  white: 'rgb(255,255,255)',
+  blue: 'rgb(0,0,255)',
+  lightblue: 'rgb(26, 115, 232)',
+  placeholderColor: 'rgba(0,0,0,0.2)',
+  blackOverlayStarting: 'rgba(0,0,0,0)',
+  blackOverlayMid: 'rgba(0,0,0,0.3)',
+  grey: 'rgb(80,80,80)',
+  lightgrey: 'rgb(50,50,50)',
+  borderGrey: 'rgba(128,128,128,0.8)',
+  alertBackground: 'rgba(70, 70, 70, 1)',
+};
