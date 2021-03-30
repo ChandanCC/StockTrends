@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {StatusBar, SafeAreaView, Text, TouchableOpacity} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {
   GoogleSignin,
   statusCodes,
-  User,
 } from '@react-native-google-signin/google-signin';
 import Toast from 'react-native-root-toast';
 

@@ -1,26 +1,22 @@
-import { SERVER_PORT, SERVER_URL } from '../config/keys';
-import store from '../redux/configureStore';
+import {ALPHAVANTAGE_API_KEY} from '../config/keys';
 
-const authorizedApiCall = async (
-  method: string,
-  endpoint: string,
-  token?: string
-) => {
+const getStockData = async () => {
   try {
-    const { auth } = store.getState();
-    const response = await fetch(`${SERVER_URL}:${SERVER_PORT}/${endpoint}`, {
-      method,
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token || auth.idToken}`
-      }
-    });
+    const response = await fetch(
+      `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=000002.SHZ&outputsize=full&apikey=${ALPHAVANTAGE_API_KEY}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      },
+    );
     const jsonResponse = await response.json();
     return jsonResponse;
   } catch (err) {
-    console.log(err, `<<<Error in api call>>>`);
-    return err;
+    console.log(err, '<<<Error in api call>>>');
+    return {error: err};
   }
 };
-export default authorizedApiCall;
+export default getStockData;
