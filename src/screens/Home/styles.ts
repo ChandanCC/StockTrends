@@ -1,42 +1,36 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../config/colors';
-import {hs, ms, vs} from '../../config/scale';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.primaryBackground,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
-  chart: {
-    width: '100%',
-    height: 400,
+  micBtn: {
+    backgroundColor: colors.primaryTextColor,
+    padding: 20,
+    borderRadius: 50,
   },
-  signInButton: {
-    paddingVertical: vs(15),
-    paddingHorizontal: hs(25),
-    borderRadius: 30,
-    backgroundColor: 'rgb(114,105,144)',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.white,
+  buttonTextStyle: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: colors.primaryTextColor,
+    lineHeight: 30,
+    fontWeight: '400',
+  },
+  buttonStyle: {
+    borderWidth: 1,
+    borderColor: colors.primaryTextColor,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: 7,
     },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
+    shadowOpacity: 0.43,
+    shadowRadius: 9.51,
 
-    elevation: 10,
-  },
-  signInText: {
-    color: colors.white,
-    marginLeft: hs(10),
-    fontWeight: '600',
-    fontSize: ms(18),
+    elevation: 15,
   },
 });

@@ -5,12 +5,12 @@ import WebView from 'react-native-webview';
 const win = Dimensions.get('window');
 export default class HighChart extends Component<
   {
-    style: ViewStyle;
-    config: any;
-    stock: any;
-    more: any;
-    options: any;
-    guage: any;
+    style?: ViewStyle;
+    config?: any;
+    stock?: any;
+    more?: any;
+    options?: any;
+    guage?: any;
   },
   {
     init: string;

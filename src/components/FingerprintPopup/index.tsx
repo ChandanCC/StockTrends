@@ -101,10 +101,6 @@ export default class FingerprintPopup extends Component<
     this.description.shake();
   };
 
-  handlePopupDismissed = (data: any) => {
-    console.log(data);
-  };
-
   renderLegacy() {
     const {errorMessageLegacy, biometricLegacy} = this.state;
     const {style, handlePopupDismissedLegacy} = this.props;

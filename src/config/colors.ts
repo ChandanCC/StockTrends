@@ -1,5 +1,6 @@
 export default {
   primaryBackground: 'rgb(65,49,116)',
+  primaryTextColor: 'rgba(255,255,255,0.5)',
   red: 'rgb(255,0,0)',
   black: 'rgb(0,0,0)',
   white: 'rgb(255,255,255)',
