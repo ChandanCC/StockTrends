@@ -13,10 +13,9 @@ import colors from '../../config/colors';
 import {ms} from '../../config/scale';
 import {RootStackParamList} from '../../types/Navigation';
 import styles from './styles';
-import {
-  AsyncStoreKeys,
-  storeDataToAsyncStore,
-} from '../../helpers/asyncStorage';
+
+import {useAppDispatch} from '../../redux/hooks';
+import {updateLoggedInUser} from '../../redux/actions/loggedInUser';
 
 type SignInScreenNavigationProp = StackScreenProps<
   RootStackParamList,
@@ -31,6 +30,8 @@ enum ERROR_MESSAGES {
 
 const SignIn = ({navigation}: SignInScreenNavigationProp) => {
   const [visible, setVisible] = useState(false);
+  const dispatch = useAppDispatch();
+
   const [toastMessage, setToastMessage] = useState<ERROR_MESSAGES>(
     ERROR_MESSAGES.DEFAULT,
   );
@@ -46,8 +47,16 @@ const SignIn = ({navigation}: SignInScreenNavigationProp) => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
-      await storeDataToAsyncStore(AsyncStoreKeys.LOGIN_TOKEN, userInfo.idToken);
-      navigation.navigate('BiometricScreen');
+      if (userInfo.idToken) {
+        dispatch(
+          updateLoggedInUser({
+            token: userInfo.idToken,
+          }),
+        );
+        navigation.navigate('BiometricScreen');
+      } else {
+        throw new Error('Id token not found');
+      }
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         setToastMessage(ERROR_MESSAGES.SIGN_IN_CANCELLED);

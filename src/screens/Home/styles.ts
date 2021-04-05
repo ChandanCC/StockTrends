@@ -8,6 +8,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
   },
+  mainBtnContainer: {alignItems: 'center'},
+  textStyle: {
+    color: colors.white,
+    textAlign: 'center',
+    marginBottom: 20,
+    lineHeight: 20,
+  },
   micBtn: {
     backgroundColor: colors.primaryTextColor,
     padding: 20,

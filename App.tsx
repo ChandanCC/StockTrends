@@ -13,11 +13,17 @@ import React, {useEffect} from 'react';
 
 import Navigation from './src/navigation';
 import {RootSiblingParent} from 'react-native-root-siblings';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {Text} from 'react-native';
+import store, {persister} from './src/redux/configureStore';
 
-GoogleSignin.configure();
+GoogleSignin.configure({
+  webClientId:
+    '958386309025-2juuj60fbukn707imcl0mnqhu6j7tr2j.apps.googleusercontent.com',
+});
 
 const App = () => {
   useEffect(() => {
@@ -31,9 +37,13 @@ const App = () => {
   }, []);
 
   return (
-    <RootSiblingParent>
-      <Navigation />
-    </RootSiblingParent>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persister}>
+        <RootSiblingParent>
+          <Navigation />
+        </RootSiblingParent>
+      </PersistGate>
+    </Provider>
   );
 };
 

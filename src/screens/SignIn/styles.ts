@@ -34,5 +34,6 @@ export default StyleSheet.create({
     marginLeft: hs(10),
     fontWeight: '600',
     fontSize: ms(18),
+    fontFamily: 'Arial',
   },
 });

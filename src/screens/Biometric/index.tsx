@@ -75,9 +75,13 @@ export default class Biometric extends Component<
   detectFingerprintAvailable = () => {
     FingerprintScanner.isSensorAvailable().catch(error =>
       this.setState(
-        {errorMessage: error.message, biometric: error.biometric},
+        {
+          errorMessage: error.message,
+          biometric: 'Fingerprint sensor not found',
+        },
         () => {
           this.showToast();
+          this.props.navigation.navigate('HomeScreen');
         },
       ),
     );

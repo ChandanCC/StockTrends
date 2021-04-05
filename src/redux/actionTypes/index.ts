@@ -1,0 +1,5 @@
+export const FETCH_LOGGED_IN_USER = 'FETCH_LOGGED_IN_USER';
+export const UPDATE_LOGGED_IN_USER = 'UPDATE_LOGGED_IN_USER';
+
+export const SIGN_IN_USER = 'SIGN_IN_USER';
+export const SIGN_OUT_USER = 'SIGN_OUT_USER';
